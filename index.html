@@ -6,34 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grúas y Transportes Zamora | Alquiler de Grúas y Maniobras Especializadas</title>
     <meta name="description"
-        content="Especialistas en alquiler de grúas industriales, transporte pesado y maniobras de alta precisión. Más de 15 años de experiencia moviendo grandes proyectos con máxima seguridad.">
+        content="Empresa peruana especializada en grúas, transporte de maquinaria pesada y maniobras de alta precisión. Más de 20 años de experiencia trabajando con seguridad y compromiso.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="image" href="assets/hero-operacion-zamora.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260723-14">
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
     <!-- Header Fijo -->
     <header class="main-header" id="mainHeader">
         <div class="header-container">
-            <a href="#inicio" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="15" width="60" height="12" fill="#F4B400" rx="3" />
-                    <path d="M50 27 L50 65 C50 78, 30 78, 30 65" stroke="#F4B400" stroke-width="12"
-                        stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                    <polygon points="38,27 62,27 50,45" fill="#111111" />
-                    <circle cx="50" cy="27" r="5" fill="#FFFFFF" />
-                </svg>
-                <div class="logo-text">
-                    <span class="logo-title">ZAMORA</span>
-                    <span class="logo-subtitle">GRÚAS Y TRANSPORTES</span>
-                </div>
+            <a href="#inicio" class="logo logo-brand">
+                <img src="assets/logo-zamora-white.png" alt="Grúas y Transportes Zamora" class="brand-logo-image" width="1559" height="1009" decoding="async">
             </a>
 
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
@@ -42,9 +35,8 @@
 
             <nav class="nav-menu" id="navMenu">
                 <ul>
-                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#proyectos" class="nav-link">Flota</a></li>
                     <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
@@ -64,8 +56,11 @@
     </header>
 
     <!-- Hero Section -->
+    <main id="contenido">
     <section id="inicio" class="hero-section">
-        <div class="hero-bg" style="background-image: url('assets/hero_crane.png');"></div>
+        <div class="hero-slides" aria-hidden="true">
+            <div class="hero-bg hero-slide active" style="background-image: url('assets/hero-operacion-zamora.png');"></div>
+        </div>
         <div class="hero-overlay"></div>
 
         <!-- Elementos decorativos sutiles -->
@@ -74,24 +69,15 @@
 
         <div class="hero-container">
             <div class="hero-content">
-                <span class="hero-tag animate-item">INGENIERÍA EN IZAJE & LOGÍSTICA</span>
-                <h1 class="hero-title animate-item">Movemos Grandes Proyectos con Seguridad y Experiencia</h1>
-                <p class="hero-subtitle animate-item">Especialistas en alquiler de grúas industriales, transporte pesado
-                    y maniobras especializadas para proyectos de construcción, energía e infraestructura nacional.</p>
+                <span class="hero-tag animate-item">GRÚAS Y TRANSPORTES ZAMORA</span>
+                <h1 class="hero-title animate-item">Izaje seguro para grandes operaciones.</h1>
+                <p class="hero-subtitle animate-item">Más de 20 años coordinando izaje, transporte pesado y maniobras seguras para proyectos en Perú.</p>
                 <div class="hero-buttons animate-item">
-                    <a href="#contacto" class="btn btn-primary">Solicitar Cotización</a>
-                    <a href="#proyectos" class="btn btn-outline">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-primary">Cotizar servicio</a>
+                    <a href="#proyectos" class="btn btn-outline">Conocer la flota</a>
                 </div>
             </div>
         </div>
-
-        <a href="#servicios" class="scroll-down" aria-label="Ir a servicios">
-            <span class="scroll-text">Descubrir más</span>
-            <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="#F4B400" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-        </a>
     </section>
 
     <!-- Servicios Section -->
@@ -211,11 +197,7 @@
             <div class="about-grid">
                 <!-- Columna Izquierda: Imagen -->
                 <div class="about-image-wrapper reveal-child">
-                    <img src="assets/about_machinery.png" alt="Maquinaria pesada Grúas Zamora" class="about-img">
-                    <div class="about-experience-badge">
-                        <span class="badge-number">15+</span>
-                        <span class="badge-text">Años de Liderazgo</span>
-                    </div>
+                    <img src="assets/about-izaje-hd.png" alt="Grúa telescópica realizando un izaje industrial controlado" class="about-img" width="1024" height="1536" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Columna Derecha: Contenido -->
@@ -223,18 +205,17 @@
                     <span class="section-subtitle">SOBRE NOSOTROS</span>
                     <h2 class="section-title text-left">Experiencia que Impulsa Grandes Obras</h2>
                     <div class="accent-line text-left"></div>
-                    <p class="about-text">En <strong>Grúas y Transportes Zamora</strong>, entendemos que cada maniobra
-                        representa el eslabón crítico de tu obra. Nos especializamos en proporcionar soluciones
-                        completas de ingeniería de izaje, alquiler de equipos y transporte terrestre con los más altos
-                        estándares de seguridad y eficiencia.</p>
-                    <p class="about-text">Contamos con un equipo altamente certificado de operadores y riggers,
-                        respaldados por una flota moderna sujeta a rigurosos mantenimientos preventivos. No solo
-                        alquilamos equipos; planeamos el éxito de tus montajes.</p>
+                    <p class="about-text">En <strong>Grúas y Transportes Zamora</strong> llevamos más de dos décadas
+                        acompañando a empresas y clientes del Perú en el traslado e izaje de maquinaria pesada. Cada
+                        servicio se planifica según la carga, el acceso y las condiciones reales de la operación.</p>
+                    <p class="about-text">Nuestro equipo combina experiencia en campo, responsabilidad y atención
+                        cercana. Ejecutamos transporte pesado, maniobras de grúa y movimientos especiales priorizando
+                        la seguridad, el cuidado de los equipos y el cumplimiento de los tiempos acordados.</p>
 
                     <!-- Estadísticas -->
                     <div class="stats-grid" id="statsGrid">
                         <div class="stat-card">
-                            <span class="stat-number" data-target="15">+0</span>
+                            <span class="stat-number" data-target="20">+0</span>
                             <span class="stat-label">Años de experiencia</span>
                         </div>
                         <div class="stat-card">
@@ -255,156 +236,72 @@
         </div>
     </section>
 
-    <!-- Proyectos Destacados Section -->
+    <!-- Flota y Equipos Section -->
     <section id="proyectos" class="projects-section section-padding reveal">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle">CASOS DE ÉXITO</span>
-                <h2 class="section-title">Proyectos de Alta Envergadura</h2>
+                <span class="section-subtitle">NUESTRA FLOTA</span>
+                <h2 class="section-title">Equipos para Cada Tipo de Operación</h2>
                 <div class="accent-line"></div>
+                <p class="fleet-intro">Contamos con equipos para transporte, elevación y trabajos en altura. Evaluamos cada servicio para asignar la unidad adecuada según la carga, el acceso y las condiciones de la operación.</p>
             </div>
 
             <div class="projects-grid">
-                <!-- Proyecto 1 -->
-                <a href="proyecto1.html" class="project-card reveal-child">
+                <a href="equipo.html?tipo=hiab" class="project-card fleet-card reveal-child">
                     <div class="project-image-container">
-                        <img src="assets/project_wind.png" alt="Parque Eólico Viento Norte" class="project-img">
+                        <img src="assets/fleet-hiab-hd.png" alt="Camión equipado con grúa articulada durante una maniobra" class="project-img" width="1536" height="1024" loading="lazy" decoding="async">
                         <div class="project-overlay">
                             <div class="project-info">
-                                <span class="project-tag">Energía Eólica</span>
-                                <h3 class="project-card-title">Parque Eólico Viento Norte</h3>
-                                <p class="project-card-desc">Montaje de 12 aerogeneradores de 120 metros utilizando grúa
-                                    sobre orugas de 500 toneladas.</p>
-                                <span class="project-btn">Ver Proyecto</span>
+                                <span class="project-tag">TRANSPORTE Y MANIOBRA</span>
+                                <h3 class="project-card-title">Grúas Articuladas</h3>
+                                <p class="project-card-desc">Camiones equipados con brazo hidráulico articulado para cargar, descargar, elevar y posicionar materiales con precisión.</p>
+                                <span class="project-btn">Ver servicios realizados</span>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Proyecto 2 -->
-                <a href="proyecto2.html" class="project-card reveal-child">
+                <a href="equipo.html?tipo=telescopica" class="project-card fleet-card reveal-child">
                     <div class="project-image-container">
-                        <img src="assets/project_transport.png" alt="Transporte de Reactor Industrial"
-                            class="project-img">
+                        <img src="assets/fleet-telescopica-hd.png" alt="Grúa móvil telescópica realizando un izaje industrial" class="project-img" width="1536" height="1024" loading="lazy" decoding="async">
                         <div class="project-overlay">
                             <div class="project-info">
-                                <span class="project-tag">Logística Pesada</span>
-                                <h3 class="project-card-title">Transporte Reactor Industrial</h3>
-                                <p class="project-card-desc">Traslado terrestre de reactor de 350 toneladas mediante
-                                    líneas modulares hidráulicas autopropulsadas.</p>
-                                <span class="project-btn">Ver Proyecto</span>
+                                <span class="project-tag">IZAJE Y MONTAJE</span>
+                                <h3 class="project-card-title">Grúas Telescópicas</h3>
+                                <p class="project-card-desc">Equipos para maniobras de elevación, montaje y posicionamiento de maquinaria en distintos entornos de trabajo.</p>
+                                <span class="project-btn">Ver servicios realizados</span>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Proyecto 3 -->
-                <a href="proyecto3.html" class="project-card reveal-child">
+                <a href="equipo.html?tipo=trailer" class="project-card fleet-card reveal-child">
                     <div class="project-image-container">
-                        <img src="assets/project_lifting.png" alt="Izaje Estructura Torre Corporativa"
-                            class="project-img">
+                        <img src="assets/fleet-trailer-hd.png" alt="Camión tráiler con cama baja trasladando maquinaria pesada" class="project-img" width="1536" height="1024" loading="lazy" decoding="async">
                         <div class="project-overlay">
                             <div class="project-info">
-                                <span class="project-tag">Infraestructura</span>
-                                <h3 class="project-card-title">Izaje Torre Metropolitana</h3>
-                                <p class="project-card-desc">Montaje de la corona de acero y antena de
-                                    telecomunicaciones en rascacielos a 150 metros de altura.</p>
-                                <span class="project-btn">Ver Proyecto</span>
+                                <span class="project-tag">LOGÍSTICA PESADA</span>
+                                <h3 class="project-card-title">Camiones Tráiler y Cama Baja</h3>
+                                <p class="project-card-desc">Unidades para el traslado de maquinaria pesada, estructuras y cargas especiales con planificación de ruta y coordinación operativa.</p>
+                                <span class="project-btn">Ver servicios realizados</span>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <!-- Proyecto 4 -->
-                <a href="proyecto4.html" class="project-card reveal-child">
+                <a href="equipo.html?tipo=hidroelevador" class="project-card fleet-card reveal-child">
                     <div class="project-image-container">
-                        <img src="assets/project_refinery.png" alt="Mantenimiento Refinería Olmeca" class="project-img">
+                        <img src="assets/fleet-hidroelevador-hd.png" alt="Camión hidroelevador con brazo articulado y canastilla para trabajos en altura" class="project-img" width="1536" height="1024" loading="lazy" decoding="async">
                         <div class="project-overlay">
                             <div class="project-info">
-                                <span class="project-tag">Industria Química</span>
-                                <h3 class="project-card-title">Maniobra Refinería Olmeca</h3>
-                                <p class="project-card-desc">Sustitución de tambores de coquización en espacios ultra
-                                    confinados durante paro programado.</p>
-                                <span class="project-btn">Ver Proyecto</span>
+                                <span class="project-tag">TRABAJOS EN ALTURA</span>
+                                <h3 class="project-card-title">Camiones Elevadores</h3>
+                                <p class="project-card-desc">Equipos con brazo articulado y canastilla para elevar personal en trabajos de mantenimiento, inspección e intervención en altura.</p>
+                                <span class="project-btn">Ver servicios realizados</span>
                             </div>
                         </div>
                     </div>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proceso de Trabajo Section -->
-    <section class="process-section section-padding bg-darker reveal">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">METODOLOGÍA</span>
-                <h2 class="section-title">Nuestro Proceso de Trabajo Seguro</h2>
-                <div class="accent-line"></div>
-            </div>
-
-            <div class="process-timeline">
-                <div class="timeline-line"></div>
-
-                <!-- Paso 1 -->
-                <div class="timeline-item reveal-child">
-                    <div class="timeline-icon">
-                        <span>1</span>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Solicitud del Servicio</h3>
-                        <p class="timeline-desc">Recopilación de requerimientos técnicos, dimensiones de la carga y
-                            condiciones preliminares del terreno.</p>
-                    </div>
-                </div>
-
-                <!-- Paso 2 -->
-                <div class="timeline-item reveal-child">
-                    <div class="timeline-icon">
-                        <span>2</span>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Evaluación Técnica</h3>
-                        <p class="timeline-desc">Visita de ingenieros especializados al sitio para validar accesos,
-                            capacidad portante del suelo e interferencias.</p>
-                    </div>
-                </div>
-
-                <!-- Paso 3 -->
-                <div class="timeline-item reveal-child">
-                    <div class="timeline-icon">
-                        <span>3</span>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Planificación & Plan de Rigging</h3>
-                        <p class="timeline-desc">Modelado tridimensional de la maniobra, selección del equipo óptimo y
-                            diseño detallado del plan de izaje.</p>
-                    </div>
-                </div>
-
-                <!-- Paso 4 -->
-                <div class="timeline-item reveal-child">
-                    <div class="timeline-icon">
-                        <span>4</span>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Ejecución Segura</h3>
-                        <p class="timeline-desc">Traslado de equipos, delimitación del área operativa, plática de
-                            seguridad (JSA) y ejecución de la maniobra.</p>
-                    </div>
-                </div>
-
-                <!-- Paso 5 -->
-                <div class="timeline-item reveal-child">
-                    <div class="timeline-icon">
-                        <span>5</span>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Entrega & Supervisión</h3>
-                        <p class="timeline-desc">Verificación del posicionamiento final de la carga, desmontaje seguro
-                            del equipo y cierre de bitácora.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -495,16 +392,55 @@
                     </button>
                 </div>
             </div>
+
+            <div class="testimonial-submit-panel">
+                <div class="testimonial-submit-copy">
+                    <span class="section-subtitle">COMPARTE TU EXPERIENCIA</span>
+                    <h3>¿Trabajaste con nosotros?</h3>
+                    <p>Déjanos tu testimonio. Tu opinión ayuda a otros clientes a elegir un servicio responsable.</p>
+                </div>
+                <form id="testimonialForm" class="testimonial-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="testimonialName">Nombre</label>
+                            <input id="testimonialName" type="text" maxlength="60" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="testimonialCompany">Empresa</label>
+                            <input id="testimonialCompany" type="text" maxlength="80" placeholder="Empresa o proyecto">
+                        </div>
+                    </div>
+                    <div class="form-group testimonial-rating-group">
+                        <div class="star-rating" role="radiogroup" aria-label="Calificación de 1 a 5 estrellas">
+                            <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 estrellas">★</label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrellas">★</label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrellas">★</label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrellas">★</label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrella">★</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonialMessage">Testimonio</label>
+                        <textarea id="testimonialMessage" rows="4" maxlength="500" required placeholder="Cuéntanos cómo fue tu experiencia"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar testimonio</button>
+                    <p class="testimonial-form-status" id="testimonialFormStatus" aria-live="polite"></p>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section reveal">
         <div class="cta-container">
-            <h2 class="cta-title">¿Necesitas una solución confiable para tu próximo proyecto?</h2>
-            <p class="cta-subtitle">Cotiza tu maniobra hoy mismo. Analizamos las especificaciones de carga y terreno sin
-                costo inicial.</p>
-            <a href="#contacto" class="btn btn-dark">Solicita una Cotización</a>
+            <div class="cta-copy">
+                <h2 class="cta-title">¿Necesitas una solución confiable para tu próximo proyecto?</h2>
+            </div>
+            <div class="cta-action">
+                <p class="cta-subtitle">Cotiza tu maniobra hoy mismo. Analizamos las especificaciones de carga y terreno sin
+                    costo inicial.</p>
+                <a href="#contacto" class="btn btn-dark">Solicita una Cotización</a>
+            </div>
         </div>
     </section>
 
@@ -518,7 +454,7 @@
                     <h2 class="section-title text-left">¿Listo para iniciar tu maniobra?</h2>
                     <div class="accent-line text-left"></div>
                     <p class="contact-lead-text">Pon tu carga en las manos correctas. Rellena el formulario y un
-                        ingeniero de izaje se pondrá en contacto contigo en menos de 2 horas.</p>
+                        nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
 
                     <div class="contact-details">
                         <!-- Teléfono -->
@@ -563,7 +499,7 @@
                             </div>
                             <div class="contact-detail-text">
                                 <span class="contact-label">Centro Operativo</span>
-                                <span class="contact-value">Lima,Peru</span>
+                                <span class="contact-value">Lima, Perú</span>
                             </div>
                         </div>
                     </div>
@@ -579,14 +515,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="formEmpresa">Empresa</label>
-                                <input type="text" id="formEmpresa" placeholder="Ej. Constructora Mexicana">
+                                <input type="text" id="formEmpresa" placeholder="Ej. Constructora Andina">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="formTelefono">Teléfono de Contacto *</label>
-                                <input type="tel" id="formTelefono" required placeholder="Ej. 81 1234 5678">
+                                <input type="tel" id="formTelefono" required placeholder="Ej. 999 999 999">
                             </div>
                             <div class="form-group">
                                 <label for="formEmail">Correo Electrónico *</label>
@@ -622,26 +558,17 @@
     </section>
 
     <!-- Footer Premium -->
+    </main>
     <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <!-- Columna 1: Empresa -->
                 <div class="footer-col">
-                    <a href="#inicio" class="logo footer-logo">
-                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="15" width="60" height="12" fill="#F4B400" rx="3" />
-                            <path d="M50 27 L50 65 C50 78, 30 78, 30 65" stroke="#F4B400" stroke-width="12"
-                                stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                            <polygon points="38,27 62,27 50,45" fill="#111111" />
-                            <circle cx="50" cy="27" r="5" fill="#FFFFFF" />
-                        </svg>
-                        <div class="logo-text">
-                            <span class="logo-title">ZAMORA</span>
-                            <span class="logo-subtitle">GRÚAS Y TRANSPORTES</span>
-                        </div>
+                    <a href="#inicio" class="logo footer-logo logo-brand">
+                        <img src="assets/logo-zamora-white.png" alt="Grúas y Transportes Zamora" class="brand-logo-image" width="1559" height="1009" loading="lazy" decoding="async">
                     </a>
-                    <p class="footer-about-text">Líderes en izaje y logística pesada en México. Más de 15 años de
-                        compromiso ininterrumpido con la seguridad, la precisión técnica y la excelencia operativa.</p>
+                    <p class="footer-about-text">Empresa peruana con más de 20 años de experiencia en transporte,
+                        grúas y maniobras para maquinaria pesada.</p>
                 </div>
 
                 <!-- Columna 2: Navegación -->
@@ -650,7 +577,7 @@
                     <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#proyectos">Flota</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -748,7 +675,7 @@
     </button>
 
     <!-- Script -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20260723-4"></script>
 </body>
 
 </html>

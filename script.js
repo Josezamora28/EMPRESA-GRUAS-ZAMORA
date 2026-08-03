@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    window.setTimeout(() => document.body.classList.add('page-ready'), 40);
+
+    /* Portada: rotación pausada y accesible de las maniobras destacadas. */
+    const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+    if (heroSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let currentHeroSlide = 0;
+        window.setInterval(() => {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }, 5000);
+    }
 
     /* ==========================================================================
        1. HEADER REDUCIDO EN SCROLL
@@ -99,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 current += 1;
                 
                 // Formateadores específicos
-                if (target === 15) {
+                if (target === 20) {
                     stat.textContent = `+${current}`;
                 } else if (target === 500) {
                     // Saltar de 5 en 5 para acelerar el de 500
@@ -115,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (current >= target) {
                     clearInterval(timer);
                     // Asegurar valor final exacto
-                    if (target === 15) stat.textContent = `+15`;
+                    if (target === 20) stat.textContent = `+20`;
                     else if (target === 500) stat.textContent = `+500`;
                     else if (target === 24) stat.textContent = `24/7`;
                     else if (target === 100) stat.textContent = `100%`;
@@ -141,54 +153,99 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        6. CARRUSEL AUTOMÁTICO Y MANUAL DE TESTIMONIOS
        ========================================================================== */
-    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const testimonialsCarousel = document.getElementById('testimonialsCarousel');
     const prevBtn = document.getElementById('prevTestimonial');
     const nextBtn = document.getElementById('nextTestimonial');
     const dotsContainer = document.getElementById('carouselDots');
     let currentSlide = 0;
     let autoSlideInterval;
+    let testimonialSlides = [];
 
-    if (testimonialSlides.length > 0) {
-        const totalSlides = testimonialSlides.length;
+    const updateCarousel = (index) => {
+        testimonialSlides = Array.from(document.querySelectorAll('.testimonial-slide'));
+        if (!testimonialSlides.length) return;
 
-        const updateCarousel = (index) => {
-            testimonialSlides.forEach((slide, i) => {
+        const safeIndex = ((index % testimonialSlides.length) + testimonialSlides.length) % testimonialSlides.length;
+        testimonialSlides.forEach((slide, i) => {
                 slide.classList.remove('active');
-                if (i === index) slide.classList.add('active');
-            });
+                if (i === safeIndex) slide.classList.add('active');
+        });
 
-            // Actualizar dots
-            const dots = dotsContainer.querySelectorAll('.dot');
-            dots.forEach((dot, i) => {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
                 dot.classList.remove('active');
-                if (i === index) dot.classList.add('active');
-            });
+                if (i === safeIndex) dot.classList.add('active');
+        });
 
-            currentSlide = index;
-        };
+        currentSlide = safeIndex;
+    };
 
-        const nextSlide = () => {
-            let nextIndex = currentSlide + 1;
-            if (nextIndex >= totalSlides) nextIndex = 0;
-            updateCarousel(nextIndex);
-        };
+    const nextSlide = () => updateCarousel(currentSlide + 1);
+    const prevSlide = () => updateCarousel(currentSlide - 1);
 
-        const prevSlide = () => {
-            let prevIndex = currentSlide - 1;
-            if (prevIndex < 0) prevIndex = totalSlides - 1;
-            updateCarousel(prevIndex);
-        };
+    const stopAutoplay = () => clearInterval(autoSlideInterval);
+    const startAutoplay = () => {
+        stopAutoplay();
+        autoSlideInterval = setInterval(nextSlide, 6000);
+    };
 
-        // Iniciar autoplay
-        const startAutoplay = () => {
-            autoSlideInterval = setInterval(nextSlide, 6000); // Cambia cada 6 segundos
-        };
+    const bindDot = (dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoplay();
+            updateCarousel(index);
+            startAutoplay();
+        });
+    };
 
-        const stopAutoplay = () => {
-            clearInterval(autoSlideInterval);
-        };
+    const addTestimonialToCarousel = (testimonial, showImmediately = false) => {
+        if (!testimonialsCarousel || !dotsContainer) return;
 
-        // Event Listeners para botones
+        const slide = document.createElement('div');
+        slide.className = 'testimonial-slide';
+        const card = document.createElement('div');
+        card.className = 'testimonial-card';
+        const quote = document.createElement('div');
+        quote.className = 'testimonial-quote';
+        quote.textContent = '“';
+        const stars = document.createElement('div');
+        stars.className = 'testimonial-stars';
+        stars.setAttribute('aria-label', `${testimonial.rating} de 5 estrellas`);
+        stars.textContent = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+        const message = document.createElement('p');
+        message.className = 'testimonial-text';
+        message.textContent = testimonial.message;
+        const author = document.createElement('div');
+        author.className = 'testimonial-author';
+        const avatar = document.createElement('div');
+        avatar.className = 'author-avatar-fallback';
+        avatar.textContent = testimonial.name.charAt(0).toUpperCase();
+        const info = document.createElement('div');
+        info.className = 'author-info';
+        const name = document.createElement('h4');
+        name.className = 'author-name';
+        name.textContent = testimonial.name;
+        const company = document.createElement('span');
+        company.className = 'author-company';
+        company.textContent = testimonial.company || 'Cliente de Grúas Zamora';
+
+        info.append(name, company);
+        author.append(avatar, info);
+        card.append(quote, stars, message, author);
+        slide.appendChild(card);
+        testimonialsCarousel.appendChild(slide);
+
+        testimonialSlides = Array.from(document.querySelectorAll('.testimonial-slide'));
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.dataset.slide = String(testimonialSlides.length - 1);
+        bindDot(dot, testimonialSlides.length - 1);
+        dotsContainer.appendChild(dot);
+
+        if (showImmediately) updateCarousel(testimonialSlides.length - 1);
+    };
+
+    testimonialSlides = Array.from(document.querySelectorAll('.testimonial-slide'));
+    if (testimonialSlides.length > 0) {
         nextBtn.addEventListener('click', () => {
             stopAutoplay();
             nextSlide();
@@ -201,17 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoplay();
         });
 
-        // Event Listeners para los dots
-        const dots = dotsContainer.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                stopAutoplay();
-                updateCarousel(index);
-                startAutoplay();
-            });
-        });
+        dotsContainer.querySelectorAll('.dot').forEach(bindDot);
 
-        // Iniciar
+        const storedTestimonials = JSON.parse(localStorage.getItem('zamoraTestimonials') || '[]');
+        storedTestimonials.forEach((testimonial) => addTestimonialToCarousel(testimonial));
+        updateCarousel(0);
         startAutoplay();
     }
 
@@ -273,6 +324,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 5000);
 
             }, 1500); // 1.5s de delay simulado
+        });
+    }
+
+    /* ======================================================================
+       9. FORMULARIO DE TESTIMONIOS (VISTA LOCAL)
+       ====================================================================== */
+    const testimonialForm = document.getElementById('testimonialForm');
+    const testimonialFormStatus = document.getElementById('testimonialFormStatus');
+
+    if (testimonialForm) {
+        testimonialForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const selectedRating = testimonialForm.querySelector('input[name="rating"]:checked');
+            if (!selectedRating) {
+                testimonialFormStatus.textContent = 'Selecciona una calificación antes de enviar.';
+                return;
+            }
+
+            const testimonial = {
+                name: document.getElementById('testimonialName').value.trim(),
+                company: document.getElementById('testimonialCompany').value.trim(),
+                rating: Number(selectedRating.value),
+                message: document.getElementById('testimonialMessage').value.trim(),
+                createdAt: new Date().toISOString(),
+                status: 'published'
+            };
+
+            const storedTestimonials = JSON.parse(localStorage.getItem('zamoraTestimonials') || '[]');
+            storedTestimonials.push(testimonial);
+            localStorage.setItem('zamoraTestimonials', JSON.stringify(storedTestimonials));
+
+            stopAutoplay();
+            addTestimonialToCarousel(testimonial, true);
+            startAutoplay();
+            testimonialForm.reset();
+            testimonialFormStatus.textContent = '¡Gracias! Tu testimonio ya aparece en el carrusel.';
         });
     }
 });
