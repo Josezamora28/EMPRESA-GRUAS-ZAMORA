@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios realizados con equipos de Grúas y Transportes Zamora.">
+    <title>Servicios realizados | Grúas y Transportes Zamora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header scrolled">
+        <div class="header-container">
+            <a href="index.html#inicio" class="logo">
+                <div class="logo-text"><span class="logo-title">ZAMORA</span><span class="logo-subtitle">GRÚAS Y TRANSPORTES</span></div>
+            </a>
+            <nav class="nav-menu"><ul>
+                <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="index.html#proyectos" class="nav-link active">Flota</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul></nav>
+            <div class="header-actions"><a href="index.html#contacto" class="btn btn-primary btn-sm">Solicitar cotización</a></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="equipment-detail-hero" id="equipmentHero">
+            <div class="container equipment-hero-content">
+                <a href="index.html#proyectos" class="equipment-back">← Volver a nuestra flota</a>
+                <span class="section-subtitle">NUESTRA EXPERIENCIA</span>
+                <h1 id="equipmentTitle">Servicios realizados</h1>
+                <p id="equipmentIntro"></p>
+            </div>
+        </section>
+
+        <section class="section-padding equipment-services-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">APLICACIONES</span>
+                    <h2 class="section-title" id="servicesTitle">Servicios realizados con este equipo</h2>
+                    <div class="accent-line"></div>
+                </div>
+                <div class="equipment-services-grid" id="equipmentServices"></div>
+                <div class="equipment-cta">
+                    <div><span class="section-subtitle">¿TIENES UN SERVICIO SIMILAR?</span><h2>Cuéntanos qué necesitas movilizar o elevar</h2></div>
+                    <a href="index.html#contacto" class="btn btn-primary">Solicitar cotización</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="equipo.js"></script>
+</body>
+</html>
