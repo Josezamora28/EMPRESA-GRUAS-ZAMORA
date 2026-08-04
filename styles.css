@@ -3233,3 +3233,17 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; }
 }
+
+/* El disparador del menú conserva tres trazos idénticos en pantallas táctiles. */
+@media (max-width: 1080px) {
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        width: 26px;
+        height: 2px;
+        border-radius: 999px;
+    }
+
+    .hamburger::before,
+    .hamburger::after { left: 0; }
+}
