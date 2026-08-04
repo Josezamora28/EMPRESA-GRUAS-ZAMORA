@@ -3247,3 +3247,19 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
     .hamburger::before,
     .hamburger::after { left: 0; }
 }
+
+/* En vistas táctiles el menú ocupa una sola capa: no comprime la portada al cambiar el zoom. */
+@media (max-width: 1080px) {
+    .nav-menu {
+        inset: 0 -100vw 0 auto;
+        width: 100vw;
+        max-width: none;
+        padding: max(108px, calc(env(safe-area-inset-top) + 56px)) clamp(28px, 8vw, 72px) max(34px, env(safe-area-inset-bottom));
+        background: #0a0a0a;
+        box-shadow: none;
+    }
+
+    .nav-menu.open { right: 0; }
+    .nav-menu ul { width: min(100%, 520px); gap: 10px; }
+    .nav-link { min-height: 52px; }
+}
